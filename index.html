@@ -353,9 +353,9 @@
         <div class="text">It was thrilling to present my research work at the APS March Meeting'22.</div>
       </div>
 	<div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
+        <div class="numbertext">4 / 4</div>
         <img src="images/apsmarch.JPG" style="width:100%">
-        <div class="text">APS in LAS VEGAS.</div>
+        <div class="text">APS in LAS VEGAS 2023.</div>
       </div>
 
     <br>
@@ -363,47 +363,63 @@
       <span class="dot" onclick="currentSlide(0)"></span>
       <span class="dot" onclick="currentSlide(1)"></span>
       <span class="dot" onclick="currentSlide(2)"></span>
+     <span class="dot" onclick="currentSlide(3)"></span>
     </div>
-    <script>
-      let slideIndex = 0;
-      let timeoutId = null;
-      const slides = document.getElementsByClassName("mySlides");
-      const dots = document.getElementsByClassName("dot");
-      
-      showSlides();
-      function currentSlide(index) {
-           slideIndex = index;
-           showSlides();
+	    
+<script>
+  let slideIndex = 0;
+  let timeoutId = null;
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("dot");
+
+  showSlides();
+  
+  function currentSlide(index) {
+    slideIndex = index;
+    showSlides();
+  }
+  
+  function plusSlides(step) {
+    if(step < 0) {
+      slideIndex -= 2;
+      if(slideIndex < 0) {
+        slideIndex = slides.length - 1;
       }
-     function plusSlides(step) {
-        
-        if(step < 0) {
-            slideIndex -= 2;
-            
-            if(slideIndex < 0) {
-              slideIndex = slides.length - 1;
-            }
-        }
-        
-        showSlides();
-     }
-      function showSlides() {
-        for(let i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-          dots[i].classList.remove('active');
-        }
-        slideIndex++;
-        if(slideIndex > slides.length) {
-          slideIndex = 1
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].classList.add('active');
-         if(timeoutId) {
-            clearTimeout(timeoutId);
-         }
-        timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
-      }
-    </script>
+    }
+    showSlides();
+  }
+  
+  function showSlides() {
+    for(let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      dots[i].classList.remove('active');
+    }
+    
+    slideIndex++;
+    
+    if(slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+    
+    if(slideIndex === slides.length) {
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add('active');
+    } else {
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add('active');
+    }
+    
+    if(timeoutId) {
+      clearTimeout(timeoutId);
+    }
+    
+    timeoutId = setTimeout(showSlides, 5000);
+  }
+</script>
+
+
+
+   
   </body>		</article>
 							</section>
 
