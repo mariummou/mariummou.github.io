@@ -389,33 +389,24 @@
     showSlides();
   }
   
-  function showSlides() {
-    for(let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-      dots[i].classList.remove('active');
-    }
-    
-    slideIndex++;
-    
-    if(slideIndex > slides.length) {
-      slideIndex = 1;
-    }
-    
-    if(slideIndex === slides.length) {
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].classList.add('active');
-    } else {
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].classList.add('active');
-    }
-    
-    if(timeoutId) {
-      clearTimeout(timeoutId);
-    }
-    
-    timeoutId = setTimeout(showSlides, 5000);
+	function showSlides() {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].className += " active";
+  slideIndex++;
+  if (slideIndex >= slides.length) {
+    slideIndex = 0;
+  }
+  timeoutId = setTimeout(showSlides, 5000); // Change image every 5 seconds
+}
+ 
+	
   }
 </script>
+
 
 
 
